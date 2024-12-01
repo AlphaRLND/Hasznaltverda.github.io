@@ -1,0 +1,252 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9; /* Világos szürke háttér */
+    color: #333; /* Sötét szöveg */
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Elrejti az oldal vízszintes görgetését */
+    line-height: 1.5; /* Sorok közötti távolság beállítása */
+}
+header {
+    background: #2caea3; /* Zöld fejléc */
+    color: #fff; /* Fehér szöveg */
+    padding: 20px;
+    text-align: center;
+}
+nav {
+    background: #2caea3; /* Zöld navigációs sáv */
+    color: #fff; /* Fehér szöveg */
+    text-align: center;
+    padding: 10px 0;
+    position: fixed; /* Állítsuk be fix pozícióra */
+    top: 0; /* Legyen a tetején az oldalnak */
+    width: 100%; /* Teljes szélesség */
+    z-index: 1; /* A navigációs sávat előtérbe hozza */
+}
+
+nav a {
+    color: #fff; /* Fehér link színek */
+    text-decoration: none;
+    padding: 0 20px;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+section {
+    text-align: center; /* Szöveg középre igazítása */
+    padding: 120px 20px 20px; /* Több padding a tartalom fölött, hogy ne takarja el a navigációs sáv */
+    position: relative; /* Relatív pozíció a hullámzó hatáshoz */
+    z-index: 0; /* A tartalomat háttérbe helyezi */
+}
+footer {
+    background: #2caea3; /* Zöld lábléc */
+    color: #fff; /* Fehér szöveg */
+    text-align: center;
+    padding: 10px 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 1; /* A láblécet előtérbe hozza */
+}
+.wave {
+    position: absolute;
+    width: 100%;
+    height: 100px;
+    bottom: -10px;
+    left: 0;
+    background-image: url('https://www.transparenttextures.com/patterns/water.png'); /* Háttérkép a vízhatásért */
+    background-size: 100% 100px;
+    animation: wave 10s infinite linear; /* Hullámzó animáció */
+    transform: rotateX(180deg); /* Tükrözi a hullámokat */
+    z-index: -1; /* A hullámokat háttérbe helyezi */
+}
+@keyframes wave {
+    0% {
+        background-position-x: 0;
+    }
+    100% {
+        background-position-x: 100%;
+    }
+}
+
+/* Stílus az ikon és a cím elrendezéséhez */
+.title-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px; /* Térés az ikon és a cím között */
+}
+
+.title-container img {
+    margin-right: 10px; /* Térés az ikon és a cím között */
+    animation: slideIn 1s ease-in-out; /* Animáció hozzáadása az ikonhoz */
+}
+
+/* Stílus a before-after képhez */
+.before-after-image {
+    margin: 0 auto 20px; /* Kép középre igazítása */
+    margin-right: 700px;
+    display: block; /* Blokk elem */
+    animation: slideIn 1s ease-in-out; /* Animáció hozzáadása a képhez */
+}
+
+@keyframes slideIn {
+    from {
+        margin-left: -500px; /* Kezdeti pozíció balról */
+        opacity: 0; /* Kezdeti átlátszóság */
+    }
+    to {
+        margin-left: 0; /* Végleges pozíció */
+        opacity: 1; /* Végleges átlátszóság */
+    }
+}
+
+/* Galéria stílus */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 10px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.gallery img {
+    max-width: 100%;
+    height: auto;
+}
+
+.Arak h1 {
+    font-size : 5rem;
+    color :white;
+    display : flex;
+    flex-wrap : wrap;
+    align-items : center;
+    }
+    .Arak .box-container {
+    display : flex;
+    align-items : center;
+    justify-content : center;
+    flex-wrap : wrap;
+    }
+    .Arak .box-container .box {
+    height : 350px;
+    width : 350px;
+    margin : 20px 40px;
+    border-radius : 10px;
+    box-shadow : 0 3px 5px rgb(0, 0, 0, 0.9);
+    text-align : center;
+    overflow : hidden;
+    position : relative;
+    z-index : 1;
+    background : #2caea3;
+    }
+    .Arak .box-container .box::before, .Arak .box-container .box:after {
+    content : '';
+    position : absolute;
+    height : 200px;
+    width : 200px;
+    border-radius : 50%;
+    opacity : 0.5;
+    }
+    .Arak .box-container .box::before {
+    background : #f3efec;
+    top : -10%;
+    left : 80%;
+    }
+    .Arak .box-container .box::after {
+    background : #d7c7ae;
+    bottom : -10%;
+    right : 80%;
+    }
+    .Arak .box-container .box .title {
+    margin : 30px 0;
+    font-size : 26px;
+    color : var(--main-color);
+    text-transform : capitalize;
+    }
+    .Arak .box-container .box .price {
+    height : 160px;
+    width : 160px;
+    color : var(--white);
+    background : #d7c7ae;
+    padding : 57px 0 0;
+    margin : 0 auto 25px;
+    border-radius : 50%;
+    }
+    .Arak .box-container .box .price .currency {
+    font-size : 35px;
+    line-height : 35px;
+    font-weight : 300;
+    }
+    .Arak .box-container .box .price .amount {
+    font-size : 58px;
+    line-height : 45px;
+    font-weight : 700;
+    }
+    .Arak .box-container .box ul li {
+      text-align: center; /* A szöveg középre igazítása */
+      font-size: 16px;
+      margin: 20px auto;
+      color: var(--white);
+      list-style: none;
+      text-transform: uppercase;
+    }
+    .Arak .box-container .box ul li img {
+      display: block;
+      margin: 0 auto; /* A kép középre igazítása */
+    }
+    .Arak .box-container .box ul li i {
+    color : var(--main-color);
+    padding : 0 10px;
+    }
+    .Arak .box-container .box button {
+    height : 40px;
+    width : 140px;
+    outline : none;
+    border-radius : 50px;
+    text-transform : capitalize;
+    cursor : pointer;
+    background : none;
+    color : var(--main-color);
+    border : var(--main-color) solid 2px;
+    font-size : 17px;
+    font-weight : bold;
+    transition : 0.2s linear;
+    }
+    .Arak .box-container .box button:hover {
+    color : var(--white);
+    background : #d7c7ae;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+    }
+    
+    .table {
+        display: table;
+        width: 100%;
+    }
+    
+    .row {
+        display: table-row;
+    }
+    
+    .cell {
+        display: table-cell;
+        padding: 10px;
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    .cell img {
+        width: 100px;
+        height: auto;
+    }
+
+    /* p {
+        font-family: Arial, sans-serif;
+        font-size: 18px;
+        margin-bottom: 5px;
+    } */
+
+    

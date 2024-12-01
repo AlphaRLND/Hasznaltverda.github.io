@@ -1,0 +1,63 @@
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 10px;
+    padding: 20px;
+    margin-top: 20px;
+    background-color: #2caea3; /* Hátteret a navigációs sáv színével egyezőre állítjuk */
+    border-radius: 10px; /* Kerekített sarkok */
+}
+
+.row {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.column {
+    flex: 0 0 calc(33.333% - 10px); /* 33.333% oszlop szélesség, 10px margó */
+    max-width: calc(33.333% - 10px);
+    overflow: hidden;
+    border-radius: 10px;
+    margin: 0 5px; /* Csökkentett margó mindkét oldalon */
+}
+
+.column img {
+    width: 100%; /* Teljes szélességet foglalnak el */
+    max-width: 100%; /* Képek maximális szélessége 100% */
+    height: auto; /* Automatikus magasság beállítás */
+    border-radius: 10px; /* Képek szélei lekerekítve */
+}
+
+.columnkeret img {
+    width: 60%; /* Képek teljes szélessége */
+    height: auto; /* Automatikus magasság beállítás */
+    border-radius: 10px; /* Képek szélei lekerekítve */
+    border: 6px solid white; /* Fe hér keret hozzáadása a képekhez */
+}
+
+/* Mobil nézet */
+@media only screen and (max-width: 768px) {
+    /* Képgaléria */
+    .gallery .row {
+        flex-direction: column;
+        align-items: center; /* Képek középre igazítása */
+    }
+
+    .row .column {
+        flex: 0 0 calc(100% - 20px); /* Teljes szélesség a mobil nézetben */
+        max-width: calc(100% - 20px);
+        margin: 10px 0; /* Margó hozzáadása az oszlopokhoz */
+    }
+
+    .column img {
+        width: 100%; /* Teljes szélességű képek */
+        height: auto;
+        border-radius: 10px;
+    }
+}
+
+
+
+
+

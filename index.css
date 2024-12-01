@@ -1,0 +1,160 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #f4f4f4;
+}
+
+.wrapper {
+    position: relative;
+    width: 750px;
+    height: 450px;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    display: flex;
+    transition: transform 0.7s ease-in-out;
+}
+
+.form-container {
+    display: flex;
+    width: 100%;
+}
+
+.form-box {
+    position: relative;
+    width: 50%;
+    height: 100%;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: transform 0.7s ease;
+    overflow: hidden;
+}
+
+.info-text {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    /* Updated clip-path for trapezoid with cuts on both sides */
+    clip-path: polygon(20% 0, 80% 0, 100% 100%, 0 100%); /* Both sides cut off */
+    transition: clip-path 0.7s ease, left 0.7s ease;
+}
+
+
+.input-box {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-box input {
+    width: 100%;
+    padding: 10px 10px 10px 35px; /* Adjust padding for the icon */
+    font-size: 16px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.input-box .icon {
+    position: absolute;
+    top: 50%;
+    left: 10px; /* Position the icon on the left inside the input field */
+    transform: translateY(-50%); /* Center the icon vertically */
+    font-size: 20px;
+    color: #888;
+}
+
+.input-box label {
+    position: absolute;
+    top: 60%;
+    left: 35px; /* Adjust label to avoid overlapping with the icon */
+    font-size: 16px;
+    color: #888;
+    transition: 0.3s;
+    transform: translateY(-50%); /* Center the label vertically */
+}
+
+.input-box input:focus + label,
+.input-box input:valid + label {
+    top: -10px;
+    font-size: 12px;
+    color: #000;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    color: #fff;
+    background: #000;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #333;
+}
+
+.register-link, .login-link {
+    margin-top: 20px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.register-link a, .login-link a {
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.register-link a:hover, .login-link a:hover {
+    text-decoration: underline;
+}
+
+.form-box h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Style for the Login Form (make the inputs and button narrower) */
+.wrapper .login .input-box input,
+.wrapper .login button {
+    width: 80%;  /* Reduced width for login form */
+}
+
+/* Initial state (Login visible, Sign Up hidden) */
+.wrapper .signup {
+    display: none;
+}
+
+.wrapper.show-signup .form-box.login {
+    transform: translateX(-100%);
+}
+
+.wrapper.show-signup .info-text {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); /* Full trapezoid shape */
+    left: -50%;
+}
+
+.wrapper.show-signup .form-box.signup {
+    display: flex;
+    transform: translateX(0); /* Slide in Sign Up form */
+}
+
+/* Apply the same trapezoid shape for Sign Up, mirrored and clipped */
+.wrapper.show-signup .info-text {
+    left: -50%;
+    clip-path: polygon(20% 0, 80% 0, 100% 100%, 0 100%); /* Marad a vágás mindkét oldalon */
+}

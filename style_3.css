@@ -1,0 +1,129 @@
+/* Stílusok, ahogy korábban */
+* {
+    box-sizing: border-box; /* Biztosítja a konzisztens méretezést az elemek között */
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+        color: #333;
+        padding: 0; /* A felesleges padding eltávolítása az elmozdulások elkerülése érdekében */
+        margin: 0; /* Nincs margin a body-n */
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    h1 {
+        margin-bottom: 20px;
+    }
+
+    .form-container {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+    form {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        max-width: 800px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        min-width: 150px;
+    }
+
+    label {
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    select {
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    input[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 10px;
+        flex-basis: 100%;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+
+    .card {
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 15px;
+        margin: 10px 0;
+        
+    }
+
+    .card img {
+        max-width: 100%; /* Kép maximális szélessége */
+        height: auto; /* Magasság automatikus */
+        border-radius: 5px; /* Lekerekített sarkok */
+        margin-bottom: 10px; /* Kép és a szöveg közötti távolság */
+    }
+    .card h2 {
+    margin-top: 0;
+    }
+
+    .card a {
+    text-decoration: none;
+    color: #007bff;
+    }
+
+    .card a:hover {
+    text-decoration: underline;
+    }
+    /* Footer stílus */
+    footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    }
+
+    .card h3 {
+        margin: 0 0 10px;
+    }
+
+    .card p {
+        margin: 5px 0;
+    }
+
+    /* Reszponzív beállítások */
+@media (max-width: 600px) {
+.form-container {
+    flex-direction: column; /* Oszlopra állítja a beviteli mezőket */
+}
+
+.form-group {
+    width: 100%; /* A form-group maximális szélessége */
+}
+}

@@ -1,0 +1,524 @@
+/* Alapértelmezett stílusok */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Roboto', sans-serif; /* Minimalist font for entire body */
+    padding: 0; /* A felesleges padding eltávolítása az elmozdulások elkerülése érdekében */
+    margin: 0; /* Nincs margin a body-n */
+}
+
+/* Navigációs sáv stílusa */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #333;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    
+}
+
+nav ul li {
+    margin: 0 15px;
+    
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 15px;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #f4f4f4;
+}
+
+/* Animált csík stílusa */
+.nav-indicator {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    width: 100px;
+    background-color: #f4f4f4;
+    transition: all 0.4s ease;
+}
+
+/* Jobb oldali menüpontok */
+.nav-right {
+    background-color: #444;
+    border-radius: 5px;
+    padding: 5px 15px;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+}
+
+.nav-right ul {
+    display: flex;
+}
+
+.nav-right ul li {
+    margin-left: 15px;
+}
+
+/* Garázs ikon stílusa */
+.garage-icon {
+    width: 24px;
+    height: auto;
+}
+
+/* Szekciók stílusai */
+.content-section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding: 20px;
+}
+
+/* #section1 {
+    position: relative;
+    top: 0;
+} */
+
+.gray-section {
+    background-color: #333;
+    color: #333;
+}
+
+.white-section {
+    background-color: #ffffff;
+    color: #333;
+}
+
+.scroll-item {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    font-size: 2em;
+}
+
+/* Animációk */
+[data-animation="fade-in"].visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+[data-animation="slide-in-left"].visible,
+[data-animation="slide-in-right"].visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+[data-animation="slide-in-left"] {
+    transform: translateX(-100%);
+}
+
+[data-animation="slide-in-right"] {
+    transform: translateX(100%);
+}
+
+/* Footer stílus */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* "Rólunk" cím stílusa */
+.about-title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2.5em;
+    color: #333;
+}
+
+/* Kártyák stílusa */
+.card-container {
+    display: flex;
+    justify-content: space-between; /* Spaces the cards evenly */
+    flex-wrap: wrap; /* Allows cards to wrap to the next line on smaller screens */
+    margin: 0 auto; /* Center the container */
+    max-width: 1200px; /* Optional: limits the width of the card container */
+    padding: 20px; /* Adds padding around the container */
+}
+
+.card {
+    flex: 1 1 calc(33.33% - 20px);
+    display: flex;
+    background-color: #fff;
+    border-radius: 8px;
+    width: 30%;
+    margin: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, filter 0.5s ease, opacity 0.5s ease;
+    opacity: 0;
+    transform: translateY(100px);
+    filter: blur(10px);
+    flex-direction: column;
+    text-align: center;
+}
+.card::after {
+    content: '';
+    position: absolute;
+    top: 100%; /* A kártya alá helyezi */
+    left: 0;
+    right: 0;
+    height: 100%; /* A tükrözés magassága megegyezik a kártyával */
+    background: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0)); /* Áttetsző gradient */
+    transform: scaleY(-1); /* Tükrözi függőlegesen */
+    opacity: 0.3; /* Áttetszőség a finomabb hatásért */
+    pointer-events: none; /* Nem kattintható */
+}
+
+.card.visible {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Slightly larger shadow on hover */
+    transform: translateY(-5px); /* Lift card slightly */
+    transition: all 0.3s ease; /* Smooth transition */
+}
+
+.card-image {
+    width: 100%; /* Makes the image take full width of the card */
+    height: 200px; /* Fixed height for uniformity */
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+}
+
+.card-content {
+    padding: 20px; /* Extra padding for whitespace */
+    color: #333; /* Dark gray text for readability */
+    font-family: 'Roboto', sans-serif; /* Ensure consistency with body font */
+    line-height: 1.5; /* Space between lines for readability */
+    flex-grow: 1;
+}
+
+.card-content h3 {
+    font-size: 1.25rem; /* Adjust title size */
+    font-weight: 600; /* Bold title for emphasis */
+    margin: 0 0 10px; /* Space below title */
+    color: #222; /* Slightly darker shade for contrast */
+}
+.card-content p {
+    font-size: 1rem; /* Standard text size */
+    color: #555; /* Softer gray for paragraphs */
+    margin: 0; /* Remove default paragraph margin */
+}
+
+/* Autó animáció és stílus */
+.container {
+    position: relative;
+    text-align: center;
+}
+
+.car-container {
+    position: absolute;
+    top: 50%;
+    left: -100px;
+    transform: translateY(-50%);
+}
+
+.car {
+    width: 100px;
+    animation: drive 4s linear forwards;
+}
+
+@keyframes drive {
+    0% {
+        transform: translateX(-100vw) translateY(-50%);
+    }
+    100% {
+        transform: translateX(100vw) translateY(-50%);
+    }
+}
+
+/* Betű animáció */
+.animated-text {
+    font-size: 4rem;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+}
+
+.letter {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.letter.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Reszponzív stílusok */
+@media (max-width: 992px) {
+    nav ul {
+        flex-direction: column;
+    }
+    .content-section {
+        padding: 40px 20px; /* Padding hozzáadva kisebb képernyőkön */
+    }
+
+    .nav-right ul {
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    .nav-indicator {
+        display: none;
+    }
+
+    .card-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 90%;
+    }
+}
+
+@media (max-width: 768px) {
+    nav {
+        height: auto;
+        padding: 10px;
+    }
+
+    .nav-right {
+        padding: 5px;
+        margin: 0;
+    }
+
+    .content-section {
+        padding: 20px;
+    }
+
+    .animated-text {
+        font-size: 1.8rem;
+    }
+    
+    .scroll-item {
+        font-size: 1.5em;
+    }
+
+    .car-container {
+        top: auto;
+        left: 0;
+        transform: translateY(0);
+    }
+
+    .car {
+        width: 80px;
+        animation: drive-mobile 3s linear forwards;
+    }
+
+    @keyframes drive-mobile {
+        0% {
+            transform: translateX(-100vw);
+        }
+        100% {
+            transform: translateX(100vw);
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .nav-right ul {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .car-container {
+        padding: 10px;
+    }
+
+    .animated-text {
+        font-size: 1.2rem;
+    }
+
+    .about-title {
+        font-size: 2rem;
+    }
+
+    .card-container {
+        padding: 10px;
+    }
+
+    .card {
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    footer p {
+        font-size: 0.8em;
+    }
+}
+/* Menüpontok alapértelmezett stílusa (asztali nézet) */
+.nav-links {
+    display: flex;
+    list-style-type: none;
+    margin-left: auto;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 15px;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #f4f4f4;
+}
+.nav-right {
+    display: flex;
+    align-items: center;
+}
+
+/* Három vonal ikon stílusa */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.menu-toggle span {
+    width: 30px;
+    height: 3px;
+    background-color: white;
+    margin: 4px 0;
+    transition: 0.3s;
+}
+/* Mobil nézetben a navigációs sáv rejtése */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background-color: #333;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: flex;
+        margin-left: auto;
+    }
+
+    .nav-right {
+        display: none; /* Rejtsük el a jobb oldali menüt kisebb kijelzőn */
+    }
+}
+/* Videó háttér beállításai */
+.video-section {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Maximális magasság a teljes nézethez */
+    overflow: hidden; /* Elrejti a túllógó tartalmakat */
+}
+
+.background-video {
+    position: absolute;
+    top: 50%; /* Középre igazítás */
+    left: 50%; /* Középre igazítás */
+    min-width: 100%; /* Minimum szélesség 100% */
+    min-height: auto; /* Minimum magasság automatikusan */
+    width: auto; /* Automatikus szélesség */
+    height: 100%; /* Maximális magasság 100% */
+    transform: translate(-50%, -50%); /* Középre igazítás */
+    z-index: -1; /* A tartalom mögé helyezi a videót */
+    object-fit: cover; /* Kitölti a szekciót a videó, de megtartja az arányait */
+}
+
+/* A videó szekció szűkítése a jobb láthatóság érdekében */
+.video-container {
+    position: relative;
+    height: 80vh; /* A videó szekció magassága 80vh-ra csökkentve */
+    overflow: hidden; /* Elrejti a túllógó tartalmakat */
+}
+
+/* Videó overlay szövegstílusa */
+.video-overlay {
+    position: relative;
+    z-index: 1; /* A szöveg a videó fölött legyen */
+    top: 20%; /* Állítsd be a szöveg pozícióját, hogy feljebb kerüljön */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff; /* Fehér szöveg */
+    text-align: center;
+    height: 100%; /* Teljes magasság */
+    padding: 0 20px; /* Padding a jobb olvashatóság érdekében */
+    max-width: 90%; /* Maximum szélesség a szövegnek */
+    margin: 0 auto; /* Középre igazítás */
+}
+
+/* Szöveg stílusa */
+.video-overlay h1 {
+    font-size: 3rem; /* Nagy méretű szöveg */
+    font-weight: 500; /* Közepes súlyú betűtípus */
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.2; /* Sor magasság beállítása a jobb olvashatóság érdekében */
+}
+
+/* Reszponzív szövegméretek */
+@media (max-width: 768px) {
+    .video-overlay h1 {
+        font-size: 1.5rem; /* Kisebb méret mobilon */
+        line-height: 1.4; /* Növeljük a sor magasságot a jobb olvashatóság érdekében */
+    }
+}
+
+@media (max-width: 576px) {
+    .video-overlay h1 {
+        font-size: 1.2rem; /* Még kisebb méret nagyon kicsi kijelzőn */
+        line-height: 1.3; /* Sor magasság csökkentése */
+    }
+}
+
+
+
+
+
